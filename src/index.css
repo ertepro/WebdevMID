@@ -1,13 +1,30 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+h1{
+    font-size:50px;
+    font-family:"Bauhaus 93", sans-serif;
+    font-weight:900;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.footerLogo{
+    width:20px;
+    height:20px;
+
+}
+
+.footer{
+
+    background-color: aliceblue;
+    position: fixed;
+    bottom :0px;
+    width:100%;
+}
+.FooterMain{
+    font-family: "Bauhaus 93", sans-serif;
+}
+
+.searchbar{
+    text-align:center;
+}
+.header{
+    text-align:center;
+
 }
