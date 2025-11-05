@@ -28,3 +28,12 @@ h1{
     text-align:center;
 
 }
+.item{
+    width:500px;
+    position:relative;
+}
+.item:hover{
+    cursor:pointer;
+    box-shadow: #282c34 1px 1px 1px;
+
+}
