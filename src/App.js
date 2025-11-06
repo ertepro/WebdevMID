@@ -1,7 +1,7 @@
 
 import './App.css';
 import Footer from "./Footer";
-import {useEffect, useState} from "react";
+import {useEffect, useMemo, useState} from "react";
 import {useForm} from "react-hook-form";
 
 function App() {
@@ -11,13 +11,27 @@ function App() {
     const searchValue = watch("search");
     const [data,setData]=useState([]);
 
+
     useEffect(()=>{
 
         fetch("https://api.tvmaze.com/search/shows?q="+searchValue)
             .then((res) => res.json())
             .then(data => setData(data))
     },[data, searchValue, setData]);
-    console.log(data)
+
+
+    const [likedData, setLikedData] = useState([]);
+    const addLiked = (item) => {
+        setLikedData((prev) => {
+            if (prev.some((liked) => liked.show.id === item.show.id)) return prev;
+            return [...prev, item];
+        });
+    };
+
+
+
+
+    console.log(likedData);
 
 
 
@@ -32,13 +46,22 @@ function App() {
         </div>
         <form className="searchbar" onSubmit={handleSubmit(onSubmit,onError)}>
             <input {...register("search")}></input>
-            <button type="submit">Search</button>
+
         </form>
         {data.map((item)=>(
             <div className="item" key={item.id}>
             <p key={item.show.id}> {item.show.name} type: {item.show.type}</p>
                 <img className="img" src={item.show.image} alt=""/>
+                <button className="like" onClick={() => addLiked(item)}>LIKE</button>
             </div>))}
+        <div className="LikedShows">
+            <h2>Liked Shows</h2>
+            {likedData.map((item)=>(
+                <p  className="likedtext"   key={item.show.id}> {item.show.name} </p>
+            ))}
+        </div>
+
+
         <Footer></Footer>
 
 </>

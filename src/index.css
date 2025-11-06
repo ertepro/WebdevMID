@@ -29,11 +29,17 @@ h1{
 
 }
 .item{
-    width:500px;
-    position:relative;
+    width:200px;
 }
 .item:hover{
     cursor:pointer;
     box-shadow: #282c34 1px 1px 1px;
 
+}
+.LikedShows{
+    position:absolute;
+
+}
+.likedtext{
+    vertical-align: auto;
 }
