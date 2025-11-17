@@ -31,7 +31,7 @@ function App() {
 
 
 
-    console.log(likedData);
+    console.log(data);
 
 
 
@@ -50,9 +50,10 @@ function App() {
         </form>
         {data.map((item)=>(
             <div className="item" key={item.id}>
-            <p key={item.show.id}> {item.show.name} type: {item.show.type}</p>
-                <img className="img" src={item.show.image} alt=""/>
+                <p key={item.show.id}> {item.show.name}</p>
+                <p className="description">{item.show.summary?.replace(/<[^>]+>/g, "")}</p>
                 <button className="like" onClick={() => addLiked(item)}>LIKE</button>
+
             </div>))}
         <div className="LikedShows">
             <h2>Liked Shows</h2>
