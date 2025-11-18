@@ -27,6 +27,9 @@ function App() {
             return [...prev, item];
         });
     };
+    const removeLiked = (showId) => {
+        setLikedData((prev) => prev.filter((item) => item.show.id !== showId));
+    };
 
 
 
@@ -58,8 +61,13 @@ function App() {
         <div className="LikedShows">
             <h2>Liked Shows</h2>
             {likedData.map((item)=>(
+                <div>
                 <p  className="likedtext"   key={item.show.id}> {item.show.name} </p>
+                    <button className="unlike"onClick={() => removeLiked(item.show.id)} >unlike</button>
+                </div>
+
             ))}
+
         </div>
 
 
