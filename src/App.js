@@ -55,6 +55,8 @@ function App() {
             <div className="item" key={item.id}>
                 <p key={item.show.id}> {item.show.name}</p>
                 <p className="description">{item.show.summary?.replace(/<[^>]+>/g, "")}</p>
+                <p>Rating:</p>
+                <p className={"rating"}>{item.show.rating.average}</p>
                 <button className="like" onClick={() => addLiked(item)}>LIKE</button>
 
             </div>))}
